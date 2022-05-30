@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // Вам нужно, написать функцию,
+    // которая принимает 1 параметр. При первом вызове, 
+    // она его запоминает, при втором — суммирует переданный параметр с тем, что передали первый раз и тд.
+    // Всё это с замыканиями, например: sum(3) = 3 sum(5) = 8 sum(20) = 28
+
+    function Createsum () {
+    let count = 0;
+
+        return (number) => {
+            if (!count) {
+                count = number;
+                return count;
+            }
+            count += number;
+
+            return count;
+        };
+    }
+
+    const result = Createsum();
+
+    console.log(result(33));
+    console.log(result(51));
+
+
+    // Возьмите счетчик, который мы писали в классе и добавьте ему возможность задавать начальное значение и шаг счетчика
+    // при инициализации и метод для сброса к начальному значению. Помните, что функция - это объект)
+
+
+    function createCounter(value, step) {
+        let count = value;
+
+        function counter() {
+            return count += step;
+        }
+
+        counter.reset = function() {
+            count = value;
+            return count;
+        }
+
+        return counter;
+
+    }
+
+        const counter = createCounter(5, 35);
+
+        console.log('counter: ', counter());
+        console.log('counter: ', counter());
+        console.log('reset: ', counter.reset());
+        console.log('counter: ', counter());
+        console.log('counter: ', counter());
+
+
+
+
+
+
+    </script>   
+</body>
+</html>
