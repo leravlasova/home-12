@@ -14,24 +14,18 @@
     // она его запоминает, при втором — суммирует переданный параметр с тем, что передали первый раз и тд.
     // Всё это с замыканиями, например: sum(3) = 3 sum(5) = 8 sum(20) = 28
 
-    function Createsum () {
-    let count = 0;
+    function calc(startNum){
+            let sum = startNum ;
 
-        return (number) => {
-            if (!count) {
-                count = number;
-                return count;
+            return function(secondNum){
+                return sum +=secondNum;
             }
-            count += number;
 
-            return count;
-        };
-    }
+        }
 
-    const result = Createsum();
-
-    console.log(result(33));
-    console.log(result(51));
+        const res = calc(8);
+        console.log(res(5));
+        console.log(res(5));
 
 
     // Возьмите счетчик, который мы писали в классе и добавьте ему возможность задавать начальное значение и шаг счетчика
@@ -61,6 +55,12 @@
         console.log('reset: ', counter.reset());
         console.log('counter: ', counter());
         console.log('counter: ', counter());
+
+
+
+
+
+
 
 
 
